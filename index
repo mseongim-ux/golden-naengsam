@@ -1,0 +1,943 @@
+<!DOCTYPE html>
+<html lang="ko" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>황금냉삼 - 동백 최고의 프리미엄 듀록 냉삼 전문점</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts (Inter & Noto Sans KR) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Noto Sans KR', 'Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        gold: {
+                            50: '#fdfbeb',
+                            100: '#fbf7c3',
+                            200: '#f7ed85',
+                            300: '#f2dc44',
+                            400: '#ecc619',
+                            500: '#d9ad10',
+                            600: '#bb890b',
+                            700: '#95640c',
+                            800: '#7a5010',
+                            900: '#644111',
+                        },
+                        charcoal: {
+                            50: '#f4f5f6',
+                            900: '#111317',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #111317;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #bb890b;
+            border-radius: 4px;
+        }
+        .text-glow {
+            text-shadow: 0 0 10px rgba(217, 173, 16, 0.5);
+        }
+    </style>
+</head>
+<body class="bg-charcoal-50 text-slate-800 font-sans antialiased overflow-x-hidden">
+
+
+    <!-- Global Toast Notification -->
+    <div id="toast" class="fixed top-5 left-1/2 -translate-x-1/2 z-50 transform -translate-y-20 opacity-0 transition-all duration-300 ease-out bg-slate-900 text-white px-6 py-3 rounded-full shadow-2xl flex items-center space-x-2 border border-gold-400">
+        <i class="fa-solid fa-circle-check text-gold-400 text-lg animate-bounce"></i>
+        <span id="toast-msg" class="text-sm font-medium"></span>
+    </div>
+
+    <!-- Floating Navigation Action Bar for Mobile -->
+    <div class="fixed bottom-0 left-0 right-0 z-40 bg-slate-900/95 backdrop-blur-md border-t border-slate-800 py-3 px-4 flex justify-around items-center md:hidden shadow-lg">
+        <a href="tel:050713039290" class="flex flex-col items-center text-slate-400 hover:text-gold-400 transition-colors">
+            <i class="fa-solid fa-phone text-lg"></i>
+            <span class="text-xs mt-1">전화문의</span>
+        </a>
+        <a href="#menu-section" class="flex flex-col items-center text-slate-400 hover:text-gold-400 transition-colors">
+            <i class="fa-solid fa-utensils text-lg"></i>
+            <span class="text-xs mt-1">메뉴보기</span>
+        </a>
+        <a href="https://app.catchtable.co.kr/ct/shop/yonginsutbul" target="_blank" class="flex flex-col items-center bg-gradient-to-r from-gold-500 to-gold-600 text-slate-950 px-5 py-2 rounded-full font-bold shadow-md hover:from-gold-400 hover:to-gold-500 transition-all transform active:scale-95">
+            <span class="text-xs"><i class="fa-solid fa-calendar-check mr-1"></i>실시간 예약</span>
+        </a>
+        <a href="#location-section" class="flex flex-col items-center text-slate-400 hover:text-gold-400 transition-colors">
+            <i class="fa-solid fa-location-dot text-lg"></i>
+            <span class="text-xs mt-1">길찾기</span>
+        </a>
+    </div>
+
+
+    <!-- HEADER / NAVIGATION -->
+    <header class="sticky top-0 z-30 bg-slate-950/90 backdrop-blur-md text-white border-b border-slate-800 transition-all duration-300">
+        <div class="max-w-6xl mx-auto px-4 h-16 md:h-20 flex items-center justify-between">
+            <a href="#" class="flex items-center space-x-2">
+                <span class="text-2xl font-extrabold tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-gold-300 via-gold-400 to-yellow-600 text-glow">
+                    🏆 황금냉삼
+                </span>
+            </a>
+            <nav class="hidden md:flex space-x-8 text-sm font-medium text-slate-300">
+                <a href="#intro-section" class="hover:text-gold-400 transition-colors">브랜드 스토리</a>
+                <a href="#menu-section" class="hover:text-gold-400 transition-colors">대표 메뉴</a>
+                <a href="#calculator-section" class="hover:text-gold-400 transition-colors">모임 계산기</a>
+                <a href="#review-section" class="hover:text-gold-400 transition-colors">고객 리뷰</a>
+                <a href="#location-section" class="hover:text-gold-400 transition-colors">오시는 길</a>
+            </nav>
+            <div class="hidden md:flex items-center space-x-4">
+                <a href="tel:0507-1303-9290" class="text-sm font-semibold text-gold-400 hover:text-gold-300 flex items-center gap-1">
+                    <i class="fa-solid fa-phone"></i> 0507-1303-9290
+                </a>
+                <a href="https://app.catchtable.co.kr/ct/shop/yonginsutbul" target="_blank" class="bg-gradient-to-r from-gold-500 to-gold-600 text-slate-950 px-5 py-2 rounded-full font-bold text-sm shadow-lg hover:brightness-110 hover:-translate-y-0.5 transition-all">
+                    캐치테이블 예약하기
+                </a>
+            </div>
+            <!-- Mobile Menu Toggle Button -->
+            <button onclick="toggleMobileMenu()" class="md:hidden text-slate-200 focus:outline-none text-2xl">
+                <i class="fa-solid fa-bars" id="menu-icon"></i>
+            </button>
+        </div>
+        <!-- Collapsible Mobile Navigation -->
+        <div id="mobile-menu" class="hidden md:hidden bg-slate-900 border-b border-slate-800 text-white flex flex-col px-6 py-4 space-y-4">
+            <a href="#intro-section" onclick="toggleMobileMenu()" class="text-lg py-1 border-b border-slate-800 hover:text-gold-400">브랜드 스토리</a>
+            <a href="#menu-section" onclick="toggleMobileMenu()" class="text-lg py-1 border-b border-slate-800 hover:text-gold-400">대표 메뉴</a>
+            <a href="#calculator-section" onclick="toggleMobileMenu()" class="text-lg py-1 border-b border-slate-800 hover:text-gold-400">모임 계산기</a>
+            <a href="#review-section" onclick="toggleMobileMenu()" class="text-lg py-1 border-b border-slate-800 hover:text-gold-400">고객 리뷰</a>
+            <a href="#location-section" onclick="toggleMobileMenu()" class="text-lg py-1 hover:text-gold-400">오시는 길</a>
+        </div>
+    </header>
+
+
+    <!-- HERO SECTION -->
+    <section class="relative bg-slate-950 text-white min-h-[80vh] flex items-center justify-center overflow-hidden py-12 md:py-24">
+        <!-- Visual Background Layer -->
+        <div class="absolute inset-0 opacity-20 pointer-events-none">
+            <div class="absolute top-10 left-10 w-96 h-96 bg-gold-600 rounded-full filter blur-[100px] animate-pulse"></div>
+            <div class="absolute bottom-10 right-10 w-96 h-96 bg-yellow-800 rounded-full filter blur-[100px] animate-pulse" style="animation-delay: 2s;"></div>
+        </div>
+        <!-- Decorative grid overlay -->
+        <div class="absolute inset-0 bg-[linear-gradient(to_right,#1f293710_1px,transparent_1px),linear-gradient(to_bottom,#1f293710_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]"></div>
+
+        <div class="relative z-10 max-w-4xl mx-auto px-4 text-center">
+            <!-- Badge -->
+            <span class="inline-flex items-center px-4 py-1.5 rounded-full text-xs font-bold tracking-widest bg-gold-950 text-gold-400 border border-gold-600/30 mb-6 uppercase animate-bounce">
+                👑 용인 동백의 명물 고깃집
+            </span>
+            <!-- Catchphrase -->
+            <h1 class="text-3xl md:text-6xl font-extrabold tracking-tight mb-6 leading-tight">
+                세계 3대 프리미엄 금돼지<br>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-gold-300 via-gold-400 to-yellow-500 font-black">
+                    듀록냉삼의 품격있는 맛
+                </span>
+            </h1>
+            <!-- Subtitle -->
+            <p class="text-slate-300 text-base md:text-xl font-light mb-10 max-w-2xl mx-auto leading-relaxed">
+                잡내 전혀 없는 부드러운 육향, 숙주와 콩나물이 어우러지는 환상의 밑반찬 조화. 단체 회식부터 화목한 가족 모임까지 완벽한 쾌적함을 약속합니다.
+            </p>
+
+            <!-- Call-to-Actions -->
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="https://app.catchtable.co.kr/ct/shop/yonginsutbul" target="_blank" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-gold-400 via-gold-500 to-yellow-600 text-slate-950 font-bold text-base md:text-lg shadow-xl shadow-gold-950/50 hover:brightness-110 transform hover:-translate-y-1 transition-all flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-calendar-check text-xl"></i> 실시간 캐치테이블 예약
+                </a>
+                <a href="#menu-section" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-slate-900 border border-slate-800 text-slate-200 hover:text-white hover:bg-slate-800 transition-all font-semibold flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-fire text-gold-400"></i> 시그니처 메뉴 보기
+                </a>
+            </div>
+
+            <!-- Highlights -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-16 pt-8 border-t border-slate-800/80">
+                <div class="p-3 bg-slate-900/40 rounded-xl border border-slate-800/50">
+                    <span class="block text-xl md:text-2xl font-bold text-gold-400">Duroc 100%</span>
+                    <span class="text-xs text-slate-400">명품 금돼지 듀록 사용</span>
+                </div>
+                <div class="p-3 bg-slate-900/40 rounded-xl border border-slate-800/50">
+                    <span class="block text-xl md:text-2xl font-bold text-gold-400">Perfect Side</span>
+                    <span class="text-xs text-slate-400">숙주·김치·콩나물 삼합</span>
+                </div>
+                <div class="p-3 bg-slate-900/40 rounded-xl border border-slate-800/50">
+                    <span class="block text-xl md:text-2xl font-bold text-gold-400">Air Control</span>
+                    <span class="text-xs text-slate-400">쾌적한 초강력 환기시설</span>
+                </div>
+                <div class="p-3 bg-slate-900/40 rounded-xl border border-slate-800/50">
+                    <span class="block text-xl md:text-2xl font-bold text-gold-400">단체 환영</span>
+                    <span class="text-xs text-slate-400">가족석 & 아기의자 완비</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- BRAND STORY & KEY FEATURES -->
+    <section id="intro-section" class="py-20 bg-white">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <span class="text-gold-600 font-bold uppercase tracking-wider text-sm">Our Philosophy</span>
+                <h2 class="text-3xl md:text-4xl font-extrabold mt-2 text-slate-900">냉삼을 새롭게 재정의하다</h2>
+                <div class="w-12 h-1 bg-gold-500 mx-auto mt-4 rounded-full"></div>
+                <p class="text-slate-500 mt-4 max-w-2xl mx-auto">
+                    우리가 아는 익숙한 냉삼을 넘어 가장 부드럽고 향이 깊은 최적의 품질을 추구합니다.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <!-- Highlight Visual Block -->
+                <div class="relative rounded-2xl overflow-hidden aspect-video md:aspect-square bg-slate-900 shadow-2xl flex flex-col justify-end p-8 text-white group">
+                    <!-- Overlay background with fallback pattern -->
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent z-10"></div>
+                    <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(217,173,16,0.15)_0,transparent_100%)] group-hover:scale-110 transition-transform duration-700"></div>
+                    <!-- Minimalistic abstract illustration overlay -->
+                    <div class="absolute inset-0 flex items-center justify-center opacity-30">
+                        <i class="fa-solid fa-cloud-meatball text-[10rem] text-gold-500/10"></i>
+                    </div>
+                    
+                    <span class="relative z-20 text-xs font-bold uppercase tracking-widest text-gold-400 mb-2">Signature Quality</span>
+                    <h3 class="relative z-20 text-2xl md:text-3xl font-extrabold mb-3">고유의 육질과 한상차림의 하모니</h3>
+                    <p class="relative z-20 text-slate-300 text-sm leading-relaxed">
+                        황금냉삼의 메인인 듀록냉삼은 고소하고 기분 좋은 육즙과 냄새 없이 빨리 구워져 첫 입부터 감탄을 자아냅니다. 여기에 구워 먹는 아삭한 숙주나물과 콩나물무침이 더해져 최상의 고기 조화를 선사합니다.
+                    </p>
+                </div>
+
+                <!-- Features list -->
+                <div class="space-y-6">
+                    <!-- Item 1 -->
+                    <div class="flex items-start space-x-4 p-4 rounded-xl hover:bg-slate-50 transition-colors">
+                        <div class="p-3 rounded-xl bg-gold-100 text-gold-600 mt-1">
+                            <i class="fa-solid fa-piggy-bank text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-bold text-slate-900">글로벌 프리미엄 품종 '듀록(Duroc)'</h4>
+                            <p class="text-slate-600 text-sm mt-1 leading-relaxed">
+                                일반 돼지 품종보다 뛰어난 마블링과 한층 부드러운 육질을 경험할 수 있는 세계 3대 명품 돈육을 엄선하여 고유의 슬라이스 기법으로 서빙합니다.
+                            </p>
+                        </div>
+                    </div>
+                    <!-- Item 2 -->
+                    <div class="flex items-start space-x-4 p-4 rounded-xl hover:bg-slate-50 transition-colors">
+                        <div class="p-3 rounded-xl bg-gold-100 text-gold-600 mt-1">
+                            <i class="fa-solid fa-leaf text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-bold text-slate-900">독보적인 사이드 꿀조합 밑반찬</h4>
+                            <p class="text-slate-600 text-sm mt-1 leading-relaxed">
+                                황금냉삼만의 비법! 잘 익은 김치는 물론 다른 고깃집에서 보기 힘든 고소한 숙주나물을 함께 불판에 올려 부드러운 냉삼과 곁들여 먹을 때 극강의 식감이 완성됩니다.
+                            </p>
+                        </div>
+                    </div>
+                    <!-- Item 3 -->
+                    <div class="flex items-start space-x-4 p-4 rounded-xl hover:bg-slate-50 transition-colors">
+                        <div class="p-3 rounded-xl bg-gold-100 text-gold-600 mt-1">
+                            <i class="fa-solid fa-wind text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-bold text-slate-900">쾌적한 냄새-Free 시스템</h4>
+                            <p class="text-slate-600 text-sm mt-1 leading-relaxed">
+                                테이블마다 장착된 강력한 공기 배기 닥트와 고성능 환기 시스템 덕분에 옷에 냄새 밸 걱정을 덜고 쾌적하게 식사할 수 있습니다.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- INTERACTIVE MENU SECTION -->
+    <section id="menu-section" class="py-20 bg-slate-950 text-white">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="text-center mb-12">
+                <span class="text-gold-400 font-bold uppercase tracking-wider text-sm">Delicious Menu</span>
+                <h2 class="text-3xl md:text-4xl font-extrabold mt-2 text-glow text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-100 to-gold-400">
+                    황금냉삼 대표 차림표
+                </h2>
+                <p class="text-slate-400 mt-3 max-w-xl mx-auto">정갈하고 푸짐하게 준비해 맛이 더 풍성합니다.</p>
+            </div>
+
+            <!-- Menu Cards Grid -->
+            <div class="grid md:grid-cols-3 gap-8 mb-16">
+                <!-- Menu Item 1: Featured -->
+                <div class="relative bg-slate-900 border-2 border-gold-500 rounded-2xl p-6 shadow-xl transform hover:-translate-y-1 transition-all">
+                    <span class="absolute top-0 right-6 -translate-y-1/2 bg-gradient-to-r from-red-500 to-amber-500 text-white text-xs font-black uppercase tracking-widest px-3 py-1 rounded-full shadow-md">
+                        Best Seller
+                    </span>
+                    <div class="h-44 rounded-xl bg-slate-800 mb-6 flex items-center justify-center relative overflow-hidden">
+                        <i class="fa-solid fa-face-laugh-beam text-5xl text-gold-400/35"></i>
+                        <span class="absolute bottom-3 left-3 bg-slate-950/80 text-xs text-gold-300 px-2 py-1 rounded">1인분 150g</span>
+                    </div>
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="text-xl font-bold">듀록냉삼</h3>
+                        <span class="text-gold-400 font-bold text-lg">10,900원</span>
+                    </div>
+                    <p class="text-slate-400 text-sm mb-6 leading-relaxed">
+                        부드러운 육질과 깊은 풍미를 자랑하는 최고 품질의 Duroc 금돼지. 황금냉삼의 일등 시그니처 메뉴입니다.
+                    </p>
+                    <div class="flex items-center gap-1.5 text-xs text-gold-500 font-semibold bg-gold-950/40 p-2.5 rounded-lg">
+                        <i class="fa-solid fa-circle-exclamation"></i>
+                        <span>숙주 + 콩나물 + 김치와 구우면 환상궁합</span>
+                    </div>
+                </div>
+
+                <!-- Menu Item 2 -->
+                <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 shadow-xl transform hover:-translate-y-1 transition-all">
+                    <div class="h-44 rounded-xl bg-slate-800 mb-6 flex items-center justify-center relative overflow-hidden">
+                        <i class="fa-solid fa-fire-flame-curved text-5xl text-gold-400/20"></i>
+                        <span class="absolute bottom-3 left-3 bg-slate-950/80 text-xs text-gold-300 px-2 py-1 rounded">1인분 150g</span>
+                    </div>
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="text-xl font-bold">꽃삼겹살</h3>
+                        <span class="text-gold-400 font-bold text-lg">14,900원</span>
+                    </div>
+                    <p class="text-slate-400 text-sm mb-6 leading-relaxed">
+                        화려한 비주얼과 식감을 위해 섬세한 칼집을 낸 부드러운 돼지고기. 입에서 사르르 녹아내리는 매력.
+                    </p>
+                    <div class="flex items-center gap-1.5 text-xs text-slate-400 bg-slate-950 p-2.5 rounded-lg">
+                        <i class="fa-solid fa-circle-info"></i>
+                        <span>풍부한 마블링과 두툼하고 부드러운 촉감</span>
+                    </div>
+                </div>
+
+                <!-- Menu Item 3 -->
+                <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 shadow-xl transform hover:-translate-y-1 transition-all">
+                    <div class="h-44 rounded-xl bg-slate-800 mb-6 flex items-center justify-center relative overflow-hidden">
+                        <i class="fa-solid fa-bacon text-5xl text-gold-400/20"></i>
+                        <span class="absolute bottom-3 left-3 bg-slate-950/80 text-xs text-gold-300 px-2 py-1 rounded">1인분 150g</span>
+                    </div>
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="text-xl font-bold">꼬들목살</h3>
+                        <span class="text-gold-400 font-bold text-lg">14,900원</span>
+                    </div>
+                    <p class="text-slate-400 text-sm mb-6 leading-relaxed">
+                        씹을수록 고소하고 꼬들꼬들하게 터지는 씹는 맛이 명품인 한정 부위. 미식가분들의 최선호 고기.
+                    </p>
+                    <div class="flex items-center gap-1.5 text-xs text-slate-400 bg-slate-950 p-2.5 rounded-lg">
+                        <i class="fa-solid fa-circle-info"></i>
+                        <span>특유의 꼬들한 비계 식감이 주는 중독성</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Side and accompaniment Menu Accordion-Style Showcase -->
+            <div class="bg-slate-900/60 rounded-2xl p-6 md:p-8 border border-slate-800">
+                <h3 class="text-xl font-bold text-gold-400 mb-6 flex items-center gap-2">
+                    <i class="fa-solid fa-pepper-hot"></i> 같이 곁들이면 천국행 후식 & 사이드
+                </h3>
+                <div class="grid md:grid-cols-2 gap-4">
+                    <div class="flex justify-between items-center p-3 bg-slate-950 rounded-lg">
+                        <span class="font-medium text-slate-300">[인기 사이드] 치즈구이</span>
+                        <div class="flex items-center space-x-2">
+                            <span class="text-xs text-slate-500">쫀맛탱 강추!</span>
+                            <span class="font-bold text-gold-400">4,000원</span>
+                        </div>
+                    </div>
+                    <div class="flex justify-between items-center p-3 bg-slate-950 rounded-lg">
+                        <span class="font-medium text-slate-300">[곁들임] 떡쌈</span>
+                        <div class="flex items-center space-x-2">
+                            <span class="text-xs text-slate-500">냉삼과 찰떡</span>
+                            <span class="font-bold text-gold-400">4,000원</span>
+                        </div>
+                    </div>
+                    <div class="flex justify-between items-center p-3 bg-slate-950 rounded-lg">
+                        <span class="font-medium text-slate-300">차돌된장술밥</span>
+                        <div class="flex items-center space-x-2">
+                            <span class="text-xs text-slate-500">베스트 후식</span>
+                            <span class="font-bold text-gold-400">7,000원</span>
+                        </div>
+                    </div>
+                    <div class="flex justify-between items-center p-3 bg-slate-950 rounded-lg">
+                        <span class="font-medium text-slate-300">물냉면 / 비빔냉면</span>
+                        <div class="flex items-center space-x-2">
+                            <span class="text-xs text-slate-500">살얼음 가득</span>
+                            <span class="font-bold text-gold-400">6,000원</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- INTERACTIVE BUDGET CALCULATOR SECTION -->
+    <section id="calculator-section" class="py-20 bg-amber-50">
+        <div class="max-w-4xl mx-auto px-4">
+            <div class="text-center mb-12">
+                <span class="text-gold-700 font-bold uppercase tracking-wider text-sm">Budget Planner</span>
+                <h2 class="text-3xl md:text-4xl font-extrabold mt-2 text-slate-950">
+                    회식·모임 간편 예산 계산기
+                </h2>
+                <p class="text-slate-600 mt-3">방문하실 대략적인 일행과 메뉴 수량을 설정하여 예상 금액을 예측해 보세요!</p>
+            </div>
+
+            <div class="bg-white rounded-3xl p-6 md:p-10 shadow-2xl border border-gold-200">
+                <div class="grid md:grid-cols-2 gap-8">
+                    <!-- Left Column: Inputs -->
+                    <div class="space-y-6">
+                        <h3 class="font-bold text-slate-900 border-b pb-2 flex items-center gap-2 text-lg">
+                            <i class="fa-solid fa-list-check text-gold-600"></i> 메뉴 선택
+                        </h3>
+                        <!-- Calc Item 1 -->
+                        <div class="flex justify-between items-center">
+                            <div>
+                                <span class="block font-bold text-slate-900">듀록냉삼 (10,900원)</span>
+                                <span class="text-xs text-slate-500">시그니처 프리미엄 금돼지</span>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <button onclick="changeQty('calc-naengsam', -1)" class="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center hover:bg-slate-200 text-slate-800 font-extrabold">-</button>
+                                <span id="calc-naengsam" class="w-8 text-center font-bold text-lg text-slate-900">0</span>
+                                <button onclick="changeQty('calc-naengsam', 1)" class="w-8 h-8 rounded-full bg-gold-500 flex items-center justify-center hover:bg-gold-600 text-slate-950 font-extrabold">+</button>
+                            </div>
+                        </div>
+
+                        <!-- Calc Item 2 -->
+                        <div class="flex justify-between items-center">
+                            <div>
+                                <span class="block font-bold text-slate-900">꽃삼겹살 / 목살 (14,900원)</span>
+                                <span class="text-xs text-slate-500">부드럽거나 꼬들꼬들한 미식가용</span>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <button onclick="changeQty('calc-premium', -1)" class="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center hover:bg-slate-200 text-slate-800 font-extrabold">-</button>
+                                <span id="calc-premium" class="w-8 text-center font-bold text-lg text-slate-900">0</span>
+                                <button onclick="changeQty('calc-premium', 1)" class="w-8 h-8 rounded-full bg-gold-500 flex items-center justify-center hover:bg-gold-600 text-slate-950 font-extrabold">+</button>
+                            </div>
+                        </div>
+
+                        <!-- Calc Item 3 -->
+                        <div class="flex justify-between items-center">
+                            <div>
+                                <span class="block font-bold text-slate-900">사이드 (치즈/떡쌈) (4,000원)</span>
+                                <span class="text-xs text-slate-500">고소함을 두 배로 높이는 별미</span>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <button onclick="changeQty('calc-side', -1)" class="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center hover:bg-slate-200 text-slate-800 font-extrabold">-</button>
+                                <span id="calc-side" class="w-8 text-center font-bold text-lg text-slate-900">0</span>
+                                <button onclick="changeQty('calc-side', 1)" class="w-8 h-8 rounded-full bg-gold-500 flex items-center justify-center hover:bg-gold-600 text-slate-950 font-extrabold">+</button>
+                            </div>
+                        </div>
+
+                        <!-- Calc Item 4 -->
+                        <div class="flex justify-between items-center">
+                            <div>
+                                <span class="block font-bold text-slate-900">식사류 (찌개/냉면) (6,000원)</span>
+                                <span class="text-xs text-slate-500">마무리 볶음밥과 냉면, 차돌 된장 등</span>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <button onclick="changeQty('calc-meal', -1)" class="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center hover:bg-slate-200 text-slate-800 font-extrabold">-</button>
+                                <span id="calc-meal" class="w-8 text-center font-bold text-lg text-slate-900">0</span>
+                                <button onclick="changeQty('calc-meal', 1)" class="w-8 h-8 rounded-full bg-gold-500 flex items-center justify-center hover:bg-gold-600 text-slate-950 font-extrabold">+</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Column: Result Screen -->
+                    <div class="bg-slate-950 rounded-2xl p-6 text-white flex flex-col justify-between shadow-inner">
+                        <div>
+                            <span class="text-xs text-gold-400 font-bold uppercase tracking-widest">Estimation</span>
+                            <h4 class="text-lg font-bold mt-1 text-slate-300">선택 내역 및 합계</h4>
+                            <div class="w-full h-px bg-slate-800 my-4"></div>
+                            <div class="space-y-3 text-sm">
+                                <div class="flex justify-between">
+                                    <span class="text-slate-400">듀록냉삼 수량</span>
+                                    <span id="summary-naengsam">0인분</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-slate-400">꽃삼겹/목살 수량</span>
+                                    <span id="summary-premium">0인분</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-slate-400">사이드/곁들임</span>
+                                    <span id="summary-side">0개</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-slate-400">후식/식사류</span>
+                                    <span id="summary-meal">0개</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mt-8">
+                            <div class="flex justify-between items-baseline mb-4">
+                                <span class="text-slate-400 font-semibold">총 예상 금액</span>
+                                <span id="calc-total" class="text-3xl font-black text-gold-400 text-glow">0원</span>
+                            </div>
+                            <a href="https://app.catchtable.co.kr/ct/shop/yonginsutbul" target="_blank" class="w-full py-3 bg-gradient-to-r from-gold-500 to-gold-600 hover:from-gold-400 hover:to-gold-500 text-slate-950 font-bold rounded-xl text-center block transition-all hover:scale-[1.02]">
+                                계산된 인원으로 바로 예약하기 <i class="fa-solid fa-arrow-right ml-1"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- COUPONS / EVENTS -->
+    <section class="py-16 bg-white">
+        <div class="max-w-4xl mx-auto px-4">
+            <div class="text-center mb-12">
+                <span class="text-red-600 font-bold tracking-widest text-xs uppercase">Special Offers</span>
+                <h2 class="text-3xl font-extrabold mt-1 text-slate-900">현재 이용 가능한 전용 혜택</h2>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-6">
+                <!-- Coupon 1: Random Drink -->
+                <div class="bg-gradient-to-br from-slate-950 to-slate-900 text-white rounded-2xl p-6 border border-gold-600/30 shadow-xl flex flex-col justify-between relative overflow-hidden">
+                    <div class="absolute -right-8 -top-8 w-24 h-24 bg-gold-500/10 rounded-full filter blur-xl"></div>
+                    <div>
+                        <div class="flex justify-between items-start mb-4">
+                            <span class="bg-gold-500 text-slate-950 text-[10px] font-extrabold px-2 py-0.5 rounded uppercase">Event</span>
+                            <span class="text-xs text-slate-400">영수증 리뷰 100% 증정</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">영수증 리뷰 랜덤 음료 쿠폰</h3>
+                        <p class="text-slate-400 text-xs leading-relaxed mb-6">
+                            결제 전 영수증 리뷰 작성 약속 후 직원에게 말씀해 주시면, 시원한 음료 1캔을 테이블 당 랜덤 서비스로 증정합니다!
+                        </p>
+                    </div>
+                    <button onclick="downloadCoupon('영수증 리뷰 음료 쿠폰')" class="w-full py-3 bg-gold-500 hover:bg-gold-400 text-slate-950 font-bold rounded-xl text-sm transition-colors flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-download"></i> 쿠폰 보관함 담기 (무료)
+                    </button>
+                </div>
+
+                <!-- Info Box: Local Support Voucher -->
+                <div class="bg-gradient-to-br from-slate-900 to-slate-950 text-white rounded-2xl p-6 border border-slate-800 shadow-xl flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-start mb-4">
+                            <span class="bg-amber-600 text-white text-[10px] font-extrabold px-2 py-0.5 rounded uppercase">국가지원</span>
+                            <span class="text-xs text-slate-400">경기 용인시 가맹점</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">고유가 피해지원금 사용 가능 매장</h3>
+                        <p class="text-slate-400 text-xs leading-relaxed mb-6">
+                            황금냉삼은 행정안전부 참여 가맹점으로, 고유가 피해 지원 목적의 신용·체크 카드로 편리하게 결제할 수 있습니다. (정확한 사용 여부는 결제 시 재확인 가능)
+                        </p>
+                    </div>
+                    <div class="text-xs text-gold-500 bg-gold-950/40 p-3 rounded-lg flex items-center gap-2 border border-gold-900/40">
+                        <i class="fa-solid fa-circle-info"></i>
+                        <span>단체 회식 및 개인 방문 모두 전면 사용 가능</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- CUSTOMER REVIEWS & SOCIAL PROOF -->
+    <section id="review-section" class="py-20 bg-slate-50">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <span class="text-gold-600 font-bold uppercase tracking-wider text-sm">Real Visitor Reviews</span>
+                <h2 class="text-3xl md:text-4xl font-extrabold mt-2 text-slate-900">다녀가신 단골들의 생생 후기</h2>
+                <p class="text-slate-500 mt-3">네이버 플레이스에 고객분들이 직접 남겨주신 최고의 맛과 감동의 한 컷</p>
+            </div>
+
+            <!-- Stats grid inspired by Naver Place key metrics -->
+            <div class="grid grid-cols-2 md:grid-cols-5 gap-4 mb-12">
+                <button onclick="filterReviews('all')" class="p-4 bg-white hover:bg-gold-50 rounded-xl shadow-sm border border-slate-100 flex flex-col items-center justify-center text-center transition-all focus:outline-none focus:ring-2 focus:ring-gold-400">
+                    <span class="text-2xl">🔥</span>
+                    <span class="text-sm font-bold text-slate-900 mt-2">전체 후기</span>
+                    <span class="text-xs text-slate-400 mt-1">인기리뷰 모음</span>
+                </button>
+                <button onclick="filterReviews('tasty')" class="p-4 bg-white hover:bg-gold-50 rounded-xl shadow-sm border border-slate-100 flex flex-col items-center justify-center text-center transition-all focus:outline-none focus:ring-2 focus:ring-gold-400">
+                    <span class="text-2xl">😋</span>
+                    <span class="text-sm font-bold text-slate-900 mt-2">음식이 맛있어요</span>
+                    <span class="text-xs text-gold-600 font-semibold mt-1">192명 선택</span>
+                </button>
+                <button onclick="filterReviews('quality')" class="p-4 bg-white hover:bg-gold-50 rounded-xl shadow-sm border border-slate-100 flex flex-col items-center justify-center text-center transition-all focus:outline-none focus:ring-2 focus:ring-gold-400">
+                    <span class="text-2xl">🥩</span>
+                    <span class="text-sm font-bold text-slate-900 mt-2">고기 질이 좋아요</span>
+                    <span class="text-xs text-gold-600 font-semibold mt-1">170명 선택</span>
+                </button>
+                <button onclick="filterReviews('kind')" class="p-4 bg-white hover:bg-gold-50 rounded-xl shadow-sm border border-slate-100 flex flex-col items-center justify-center text-center transition-all focus:outline-none focus:ring-2 focus:ring-gold-400">
+                    <span class="text-2xl">❤️</span>
+                    <span class="text-sm font-bold text-slate-900 mt-2">친절해요</span>
+                    <span class="text-xs text-gold-600 font-semibold mt-1">91명 선택</span>
+                </button>
+                <button onclick="filterReviews('clean')" class="p-4 bg-white hover:bg-gold-50 rounded-xl shadow-sm border border-slate-100 flex flex-col items-center justify-center text-center transition-all focus:outline-none focus:ring-2 focus:ring-gold-400">
+                    <span class="text-2xl">✨</span>
+                    <span class="text-sm font-bold text-slate-900 mt-2">매장이 청결해요</span>
+                    <span class="text-xs text-gold-600 font-semibold mt-1">62명 선택</span>
+                </button>
+            </div>
+
+            <!-- Dynamic Review Cards Container -->
+            <div id="reviews-grid" class="grid md:grid-cols-3 gap-6 transition-all duration-300">
+                <!-- Review 1 -->
+                <div class="review-card bg-white p-6 rounded-2xl shadow-sm border border-slate-100 flex flex-col justify-between" data-category="tasty quality flex">
+                    <div>
+                        <div class="flex items-center space-x-3 mb-4">
+                            <div class="w-10 h-10 bg-gradient-to-br from-gold-400 to-amber-500 rounded-full flex items-center justify-center text-white font-extrabold text-sm shadow">D</div>
+                            <div>
+                                <h4 class="font-bold text-slate-900 text-sm">Ddubong</h4>
+                                <span class="text-xs text-slate-400">2026.06.11 방문</span>
+                            </div>
+                        </div>
+                        <div class="flex text-amber-400 text-xs mb-3">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                            "동백냉삼추천 황금냉삼 가성비도 좋고 삼겹살 퀄리티가 좋다보니 자꾸만 또 먹고 싶게 되고 저절로 추가하게 만들어요. 잡내 없고 빨리 구워지는 황금냉삼 듀록냉삼 둘이서 5인분은 거뜬히 먹게 되네요."
+                        </p>
+                    </div>
+                    <span class="inline-block text-[11px] font-bold text-gold-600 bg-gold-50 px-2.5 py-1 rounded-md self-start">#듀록냉삼 #5인분순삭</span>
+                </div>
+
+                <!-- Review 2 -->
+                <div class="review-card bg-white p-6 rounded-2xl shadow-sm border border-slate-100 flex flex-col justify-between" data-category="tasty flex">
+                    <div>
+                        <div class="flex items-center space-x-3 mb-4">
+                            <div class="w-10 h-10 bg-gradient-to-br from-gold-400 to-amber-500 rounded-full flex items-center justify-center text-white font-extrabold text-sm shadow">귀</div>
+                            <div>
+                                <h4 class="font-bold text-slate-900 text-sm">귀참이</h4>
+                                <span class="text-xs text-slate-400">2026.06.11 방문</span>
+                            </div>
+                        </div>
+                        <div class="flex text-amber-400 text-xs mb-3">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                            "메뉴는 용인냉삼맛집 답게 듀록냉삼이 메인이었는데요! 그 외에도 물/비빔냉면, 차돌된장, 볶음밥 같은 후식 메뉴들이 다양하게 준비되어 있어서 취향에 따라 곁들여 먹기 좋았어요 ♥"
+                        </p>
+                    </div>
+                    <span class="inline-block text-[11px] font-bold text-gold-600 bg-gold-50 px-2.5 py-1 rounded-md self-start">#용인냉삼맛집 #다양한후식</span>
+                </div>
+
+                <!-- Review 3 -->
+                <div class="review-card bg-white p-6 rounded-2xl shadow-sm border border-slate-100 flex flex-col justify-between" data-category="kind quality">
+                    <div>
+                        <div class="flex items-center space-x-3 mb-4">
+                            <div class="w-10 h-10 bg-gradient-to-br from-gold-400 to-amber-500 rounded-full flex items-center justify-center text-white font-extrabold text-sm shadow">J</div>
+                            <div>
+                                <h4 class="font-bold text-slate-900 text-sm">jun****</h4>
+                                <span class="text-xs text-slate-400">5번째 재방문 고객</span>
+                            </div>
+                        </div>
+                        <div class="flex text-amber-400 text-xs mb-3">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                            "사장님 직원분들 친절하십니다.. 세계 3대 프리미엄 금돼지 듀록 냉삼~ 육질이 엄청 부드러워요~~~~ 5번째 왔는데 늘 한결같네요!"
+                        </p>
+                    </div>
+                    <span class="inline-block text-[11px] font-bold text-gold-600 bg-gold-50 px-2.5 py-1 rounded-md self-start">#세계3대금돼지 #단골인증</span>
+                </div>
+
+                <!-- Review 4 -->
+                <div class="review-card bg-white p-6 rounded-2xl shadow-sm border border-slate-100 flex flex-col justify-between" data-category="clean kind">
+                    <div>
+                        <div class="flex items-center space-x-3 mb-4">
+                            <div class="w-10 h-10 bg-gradient-to-br from-gold-400 to-amber-500 rounded-full flex items-center justify-center text-white font-extrabold text-sm shadow">공</div>
+                            <div>
+                                <h4 class="font-bold text-slate-900 text-sm">공중정원</h4>
+                                <span class="text-xs text-slate-400">2026.01.27 방문</span>
+                            </div>
+                        </div>
+                        <div class="flex text-amber-400 text-xs mb-3">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                            "매장 안으로 들어가 보니 전체적으로 깔끔하고 정돈된 느낌! 환기 시설도 잘 되어 있는지 고깃집 특유의 냄새와 답답함이 덜하고 정말 쾌적했어요."
+                        </p>
+                    </div>
+                    <span class="inline-block text-[11px] font-bold text-gold-600 bg-gold-50 px-2.5 py-1 rounded-md self-start">#깔끔쾌적 #환기시스템최고</span>
+                </div>
+
+                <!-- Review 5 -->
+                <div class="review-card bg-white p-6 rounded-2xl shadow-sm border border-slate-100 flex flex-col justify-between" data-category="tasty quality">
+                    <div>
+                        <div class="flex items-center space-x-3 mb-4">
+                            <div class="w-10 h-10 bg-gradient-to-br from-gold-400 to-amber-500 rounded-full flex items-center justify-center text-white font-extrabold text-sm shadow">강</div>
+                            <div>
+                                <h4 class="font-bold text-slate-900 text-sm">강수수1</h4>
+                                <span class="text-xs text-slate-400">첫 방문 고객</span>
+                            </div>
+                        </div>
+                        <div class="flex text-amber-400 text-xs mb-3">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                            "듀록냉삼 너무 맛있어요ㅠㅠㅠ♡ 고기 질이 진짜 좋은 것 같아요! 반찬도 깔끔하니 맛있고 푸짐해서 재방문의사 100프로 치즈구이 쫀맛탱👍"
+                        </p>
+                    </div>
+                    <span class="inline-block text-[11px] font-bold text-gold-600 bg-gold-50 px-2.5 py-1 rounded-md self-start">#재방문의사100% #치즈구이핵맛</span>
+                </div>
+
+                <!-- Review 6 -->
+                <div class="review-card bg-white p-6 rounded-2xl shadow-sm border border-slate-100 flex flex-col justify-between" data-category="clean flex">
+                    <div>
+                        <div class="flex items-center space-x-3 mb-4">
+                            <div class="w-10 h-10 bg-gradient-to-br from-gold-400 to-amber-500 rounded-full flex items-center justify-center text-white font-extrabold text-sm shadow">하</div>
+                            <div>
+                                <h4 class="font-bold text-slate-900 text-sm">하카이브</h4>
+                                <span class="text-xs text-slate-400">아기 동반 방문</span>
+                            </div>
+                        </div>
+                        <div class="flex text-amber-400 text-xs mb-3">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                            "아기의자도 굉장히 안정감 있고 좋은 걸로 준비되어 있어서 아기랑 외식하기에도 너무 좋은 곳이에요! 직원분들도 정말 친절히 받아주셔서 감사했습니다."
+                        </p>
+                    </div>
+                    <span class="inline-block text-[11px] font-bold text-gold-600 bg-gold-50 px-2.5 py-1 rounded-md self-start">#아기의자완비 #아이랑삼겹살</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- DIRECTIONS & RESERVATION SECTION -->
+    <section id="location-section" class="py-20 bg-white">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <!-- Left: Address, Map Simulation & Clipboard -->
+                <div>
+                    <span class="text-gold-600 font-bold uppercase tracking-wider text-sm">Location</span>
+                    <h2 class="text-3xl font-extrabold mt-2 text-slate-900 mb-6">오시는 길 & 매장 정보</h2>
+
+                    <div class="space-y-4 text-slate-600">
+                        <div class="flex items-start space-x-3 p-3 bg-slate-50 rounded-xl border border-slate-200">
+                            <i class="fa-solid fa-location-dot text-gold-600 text-lg mt-1"></i>
+                            <div>
+                                <span class="block font-bold text-slate-950">도로명 주소</span>
+                                <span id="address-text" class="text-sm">경기 용인시 기흥구 동백중앙로 273 동백훼미리프라자2 114호</span>
+                                <button onclick="copyAddress()" class="mt-2 text-xs font-bold text-gold-700 hover:text-gold-500 flex items-center gap-1">
+                                    <i class="fa-solid fa-copy"></i> 주소 복사하기
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-3 p-3 bg-slate-50 rounded-xl border border-slate-200">
+                            <i class="fa-solid fa-compass text-gold-600 text-lg mt-1"></i>
+                            <div>
+                                <span class="block font-bold text-slate-950">찾아가는 지름길 안내</span>
+                                <p class="text-sm mt-1 leading-relaxed">
+                                    <strong class="text-slate-900">자가용 이용시:</strong> 내비게이션에 <span class="text-gold-700 font-semibold">'동백훼미리프라자2'</span> 검색 후 하나은행 건물 지하에 편리하게 주차하세요. <br>
+                                    <strong class="text-slate-900">지하철 이용시:</strong> 용인 경전철 에버라인 <strong class="text-slate-900">'동백역'</strong> 인근 도보 10분 내 위치.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-3 p-3 bg-slate-50 rounded-xl border border-slate-200">
+                            <i class="fa-solid fa-clock text-gold-600 text-lg mt-1"></i>
+                            <div>
+                                <span class="block font-bold text-slate-950">영업시간</span>
+                                <span class="text-sm">매일 영업중 (라스트오더 익일 새벽 00:00까지)</span>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-3 p-3 bg-slate-50 rounded-xl border border-slate-200">
+                            <i class="fa-solid fa-handshake text-gold-600 text-lg mt-1"></i>
+                            <div>
+                                <span class="block font-bold text-slate-950">편의 제공</span>
+                                <span class="text-sm">단체 이용 가능, 무선 인터넷, 남/녀 화장실 구분, 예약, 유아의자 완비, 주차지원</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Simulated Interactive Map Interface -->
+                <div class="relative bg-slate-950 rounded-2xl p-6 text-white overflow-hidden shadow-2xl border border-slate-800">
+                    <div class="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,rgba(217,173,16,0.15)_0,transparent_70%)]"></div>
+                    <div class="relative z-10">
+                        <span class="text-xs font-bold text-gold-400 tracking-wider">Quick Search Guide</span>
+                        <h3 class="text-xl font-bold mt-1 mb-4">포털사이트 및 내비게이션에서 찾기</h3>
+                        
+                        <div class="space-y-4">
+                            <div class="p-4 bg-slate-900 rounded-xl flex items-center justify-between border border-slate-800">
+                                <div class="flex items-center space-x-3">
+                                    <span class="w-8 h-8 rounded-full bg-green-600 flex items-center justify-center font-black text-xs">N</span>
+                                    <div>
+                                        <span class="block font-bold text-sm">네이버 지도</span>
+                                        <span class="text-xs text-slate-400">"황금냉삼" 검색</span>
+                                    </div>
+                                </div>
+                                <a href="https://map.naver.com" target="_blank" class="text-xs bg-slate-800 hover:bg-slate-700 text-slate-200 px-3 py-1.5 rounded-lg transition-colors">길찾기 바로가기</a>
+                            </div>
+
+                            <div class="p-4 bg-slate-900 rounded-xl flex items-center justify-between border border-slate-800">
+                                <div class="flex items-center space-x-3">
+                                    <span class="w-8 h-8 rounded-full bg-yellow-500 text-slate-950 flex items-center justify-center font-black text-xs">K</span>
+                                    <div>
+                                        <span class="block font-bold text-sm">카카오맵 / T맵</span>
+                                        <span class="text-xs text-slate-400">"동백훼미리프라자2" 검색</span>
+                                    </div>
+                                </div>
+                                <a href="https://map.kakao.com" target="_blank" class="text-xs bg-slate-800 hover:bg-slate-700 text-slate-200 px-3 py-1.5 rounded-lg transition-colors">길찾기 바로가기</a>
+                            </div>
+
+                            <!-- Interactive Map Simulator Box -->
+                            <div class="h-44 rounded-xl bg-slate-900 border border-slate-800 flex flex-col justify-between p-4 relative overflow-hidden">
+                                <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#fff_1px,transparent_1px)] bg-[size:16px_16px]"></div>
+                                <div class="relative z-10 flex justify-between items-center">
+                                    <span class="text-xs font-bold text-gold-400">동백역 3번 출구 인근 (도보 10분)</span>
+                                    <span class="w-2.5 h-2.5 rounded-full bg-red-500 animate-ping"></span>
+                                </div>
+                                <div class="relative z-10 text-center my-auto">
+                                    <div class="inline-block bg-gold-500 text-slate-950 font-black text-xs px-3 py-1 rounded-full mb-1">황금냉삼</div>
+                                    <p class="text-[11px] text-slate-400">동백훼미리프라자2 1층 114호 (하나은행 건물)</p>
+                                </div>
+                                <div class="relative z-10 text-right">
+                                    <span class="text-[10px] text-slate-500">※ 건물 지하 전용 주차장 무료 이용 가능</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-slate-950 text-slate-400 py-12 border-t border-slate-900 pb-24 md:pb-12">
+        <div class="max-w-6xl mx-auto px-4 text-center md:text-left">
+            <div class="flex flex-col md:flex-row justify-between items-center mb-8">
+                <div class="mb-6 md:mb-0">
+                    <span class="text-2xl font-extrabold text-white tracking-wider">🏆 황금냉삼</span>
+                    <p class="text-xs text-slate-500 mt-2">Premium Duroc Frozen Pork Belly Restaurant in Yongin</p>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="https://app.catchtable.co.kr/ct/shop/yonginsutbul" target="_blank" class="hover:text-gold-400 text-sm transition-colors">캐치테이블 예약</a>
+                    <a href="#menu-section" class="hover:text-gold-400 text-sm transition-colors">메뉴 안내</a>
+                    <a href="tel:0507-1303-9290" class="hover:text-gold-400 text-sm transition-colors">고객 지원</a>
+                </div>
+            </div>
+            <div class="w-full h-px bg-slate-900 my-6"></div>
+            <div class="flex flex-col md:flex-row justify-between items-center text-xs text-slate-500 space-y-4 md:space-y-0">
+                <p>상호명: 황금냉삼 | 주소: 경기 용인시 기흥구 동백중앙로 273 동백훼미리프라자2 114호 | 예약 문의: 0507-1303-9290</p>
+                <p>&copy; 2026 황금냉삼. All Rights Reserved. Built for premium food experience.</p>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- JAVASCRIPT FOR DYNAMIC LOGIC -->
+    <script>
+        // Toggle mobile menu visibility
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            const icon = document.getElementById('menu-icon');
+            if (menu.classList.contains('hidden')) {
+                menu.classList.remove('hidden');
+                icon.className = "fa-solid fa-xmark";
+            } else {
+                menu.classList.add('hidden');
+                icon.className = "fa-solid fa-bars";
+            }
+        }
+
+        // Coupon downloading simulator with custom toast notification
+        function downloadCoupon(couponName) {
+            showToast(`"${couponName}"이 다운로드되었습니다! 계산 시 보여주세요.`);
+        }
+
+        // Custom Toast system (without native alert)
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            const toastMsg = document.getElementById('toast-msg');
+            toastMsg.innerText = message;
+            
+            // Show toast
+            toast.classList.remove('opacity-0', '-translate-y-20');
+            toast.classList.add('opacity-100', 'translate-y-0');
+            
+            // Hide after 3.5 seconds
+            setTimeout(() => {
+                toast.classList.remove('opacity-100', 'translate-y-0');
+                toast.classList.add('opacity-0', '-translate-y-20');
+            }, 3500);
+        }
+
+        // Copy Address to Clipboard with iFrame compatibility fallback
+        function copyAddress() {
+            const addressText = document.getElementById('address-text').innerText;
+            const tempInput = document.createElement('input');
+            tempInput.value = addressText;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            document.execCommand('copy');
+            document.body.removeChild(tempInput);
+            
+            showToast('매장 주소가 클립보드에 복사되었습니다!');
+        }
+
+        // Review filtering engine
+        function filterReviews(category) {
+            const cards = document.querySelectorAll('.review-card');
+            cards.forEach(card => {
+                if (category === 'all') {
+                    card.style.display = 'flex';
+                } else {
+                    const categories = card.getAttribute('data-category');
+                    if (categories && categories.includes(category)) {
+                        card.style.display = 'flex';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                }
+            });
+            showToast(`해당 키워드의 리뷰를 정렬했습니다.`);
+        }
+
+        // Interactive Pricing Calculator State & Logic
+        const PRICES = {
+            naengsam: 10900,
+            premium: 14900,
+            side: 4000,
+            meal: 6000
+        };
+
+        const quantities = {
+            naengsam: 0,
+            premium: 0,
+            side: 0,
+            meal: 0
+        };
+
+        function changeQty(elementId, amount) {
+            const textElement = document.getElementById(elementId);
+            let currentQty = parseInt(textElement.innerText);
+            currentQty = Math.max(0, currentQty + amount); // No negative values
+            textElement.innerText = currentQty;
+
+            // Map UI element to quantities key
+            if (elementId === 'calc-naengsam') quantities.naengsam = currentQty;
+            if (elementId === 'calc-premium') quantities.premium = currentQty;
+            if (elementId === 'calc-side') quantities.side = currentQty;
+            if (elementId === 'calc-meal') quantities.meal = currentQty;
+
+            updateCalculatorTotal();
+        }
+
+        function updateCalculatorTotal() {
+            // Update Summary Text
+            document.getElementById('summary-naengsam').innerText = `${quantities.naengsam}인분`;
+            document.getElementById('summary-premium').innerText = `${quantities.premium}인분`;
+            document.getElementById('summary-side').innerText = `${quantities.side}개`;
+            document.getElementById('summary-meal').innerText = `${quantities.meal}개`;
+
+            // Calculate total cost
+            const total = 
+                (quantities.naengsam * PRICES.naengsam) +
+                (quantities.premium * PRICES.premium) +
+                (quantities.side * PRICES.side) +
+                (quantities.meal * PRICES.meal);
+
+            // Animate total text value updates beautifully
+            document.getElementById('calc-total').innerText = `${total.toLocaleString()}원`;
+        }
+    </script>
+</body>
+</html>
